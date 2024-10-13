@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule Manager</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Schedule Manager</h1>
+        <input type="text" id="subjectInput" placeholder="Enter subject">
+        <input type="time" id="timeInput">
+        <button id="addScheduleButton">Add to Schedule</button>
+        <ul id="scheduleList"></ul>
+    </div>
+
+    <script>
+        document.getElementById('addScheduleButton').addEventListener('click', function() {
+            const subject = document.getElementById('subjectInput').value;
+            const time = document.getElementById('timeInput').value;
+            if (!subject || !time) return;
+            const scheduleItem = document.createElement('li');
+            scheduleItem.innerHTML = `${subject} at ${time}`;
+            document.getElementById('scheduleList').appendChild(scheduleItem);
+            document.getElementById('subjectInput').value = '';
+            document.getElementById('timeInput').value = '';
+        });
+    </script>
+</body>
+</html>

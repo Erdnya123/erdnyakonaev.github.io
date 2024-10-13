@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GPA Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>GPA Calculator</h1>
+        <input type="number" id="gradeInput" placeholder="Enter grade (0-100)">
+        <button id="addGradeButton">Add Grade</button>
+        <ul id="gradeList"></ul>
+        <button id="calculateGPAButton">Calculate GPA</button>
+        <p id="gpaResult"></p>
+    </div>
+
+    <script>
+        let grades = [];
+
+        document.getElementById('addGradeButton').addEventListener('click', function() {
+            const grade = parseFloat(document.getElementById('gradeInput').value);
+            if (!isNaN(grade)) {
+                grades.push(grade);
+                const gradeItem = document.createElement('li');
+                gradeItem.innerText = `Grade: ${grade}`;
+                document.getElementById('gradeList').appendChild(gradeItem);
+                document.getElementById('gradeInput').value = '';
+            }
+        });
+
+        document.getElementById('calculateGPAButton').addEventListener('click', function() {
+            if (grades.length === 0) return;
+            const total = grades.reduce((acc, grade) => acc + grade, 0);
+            const gpa = (total / grades.length).toFixed(2);
+            document.getElementById('gpaResult').innerText = `Your GPA: ${gpa}`;
+        });
+    </script>
+</body>
+</html>

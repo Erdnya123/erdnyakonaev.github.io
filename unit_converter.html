@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit Converter</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Unit Converter</h1>
+        <input type="number" id="inputValue" placeholder="Enter value">
+        <select id="unitSelect">
+            <option value="km-miles">Kilometers to Miles</option>
+            <option value="kg-pounds">Kilograms to Pounds</option>
+        </select>
+        <button id="convertButton">Convert</button>
+        <p id="result"></p>
+    </div>
+
+    <script>
+        document.getElementById('convertButton').addEventListener('click', function() {
+            const value = parseFloat(document.getElementById('inputValue').value);
+            const unit = document.getElementById('unitSelect').value;
+            let result;
+            if (unit === 'km-miles') {
+                result = (value * 0.621371).toFixed(2) + ' miles';
+            } else if (unit === 'kg-pounds') {
+                result = (value * 2.20462).toFixed(2) + ' pounds';
+            }
+            document.getElementById('result').innerText = result;
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Planner</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Task Planner</h1>
+        <div class="task-container">
+            <input type="text" id="taskInput" placeholder="Enter task">
+            <input type="date" id="dateInput">
+            <button id="addTaskButton">Add Task</button>
+        </div>
+        <ul id="taskList"></ul>
+    </div>
+
+    <script>
+        document.getElementById('addTaskButton').addEventListener('click', function() {
+            const task = document.getElementById('taskInput').value;
+            const date = document.getElementById('dateInput').value;
+            if (!task || !date) return;
+            const taskItem = document.createElement('li');
+            taskItem.innerHTML = `${task} (Due: ${date}) <button onclick="this.parentElement.remove()">Delete</button>`;
+            document.getElementById('taskList').appendChild(taskItem);
+            document.getElementById('taskInput').value = '';
+            document.getElementById('dateInput').value = '';
+        });
+    </script>
+</body>
+</html>

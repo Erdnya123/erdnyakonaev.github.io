@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Площадь круга</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Шапка -->
+    <header>
+        <div class="logo">
+            <h1>Помощник студента</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="circle.html">Площадь круга</a></li>
+                <li><a href="quadratic.html">Квадратное уравнение</a></li>
+                <li><a href="radian.html">Градусы в радианы</a></li>
+                <li><a href="pythagoras.html">Теорема Пифагора</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Контент -->
+    <main>
+        <h2>Вычисление площади круга</h2>
+        <label for="radius">Введите радиус:</label>
+        <input type="number" id="radius" placeholder="Радиус">
+        <button onclick="calculateCircleArea()">Вычислить площадь</button>
+        <p id="circle-result"></p>
+    </main>
+
+    <!-- Подвал -->
+    <footer>
+        <p>&copy; 2024 Помощник студента. Все права защищены.</p>
+        <p>Контакты: info@studenthelper.ru</p>
+    </footer>
+
+    <script>
+        function calculateCircleArea() {
+            const radius = document.getElementById('radius').value;
+            if (radius && radius > 0) {
+                const area = Math.PI * Math.pow(radius, 2);
+                document.getElementById('circle-result').textContent = `Площадь круга: ${area.toFixed(2)}`;
+            } else {
+                document.getElementById('circle-result').textContent = 'Введите корректное значение радиуса.';
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Теорема Пифагора</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Шапка -->
+    <header>
+        <div class="logo">
+            <h1>Помощник студента</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="circle.html">Площадь круга</a></li>
+                <li><a href="quadratic.html">Квадратное уравнение</a></li>
+                <li><a href="radian.html">Градусы в радианы</a></li>
+                <li><a href="pythagoras.html">Теорема Пифагора</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Контент -->
+    <main>
+        <h2>Вычисление гипотенузы (Теорема Пифагора)</h2>
+        <label for="sideA">Введите длину стороны A:</label>
+        <input type="number" id="sideA">
+        <label for="sideB">Введите длину стороны B:</label>
+        <input type="number" id="sideB">
+        <button onclick="calculateHypotenuse()">Вычислить гипотенузу</button>
+        <p id="pythagoras-result"></p>
+    </main>
+
+    <!-- Подвал -->
+    <footer>
+        <p>&copy; 2024 Помощник студента. Все права защищены.</p>
+        <p>Контакты: info@studenthelper.ru</p>
+    </footer>
+
+    <script>
+        function calculateHypotenuse() {
+            const sideA = parseFloat(document.getElementById('sideA').value);
+            const sideB = parseFloat(document.getElementById('sideB').value);
+            if (sideA > 0 && sideB > 0) {
+                const hypotenuse = Math.sqrt(Math.pow(sideA, 2) + Math.pow(sideB, 2));
+                document.getElementById('pythagoras-result').textContent = `Гипотенуза: ${hypotenuse.toFixed(2)}`;
+            } else {
+                document.getElementById('pythagoras-result').textContent = 'Введите корректные значения для сторон.';
+            }
+        }
+    </script>
+</body>
+</html>
